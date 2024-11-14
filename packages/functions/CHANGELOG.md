@@ -1,3 +1,31 @@
+## @stoplight/spectral-functions [1.9.2](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-functions-1.9.1...@stoplight/spectral-functions-1.9.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* **cli:** update dependencies and trigger docker release ([c87eacf](https://github.com/stoplightio/spectral/commit/c87eacff7c6d97ec139cc66623e4b0b27158a0cc))
+
+## @stoplight/spectral-functions [1.9.1](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-functions-1.9.0...@stoplight/spectral-functions-1.9.1) (2024-11-12)
+
+
+### Bug Fixes
+
+* **functions:** update spectral core to latest ([ede60f3](https://github.com/stoplightio/spectral/commit/ede60f3a99d9fc5ed03747331473dde8b58fa56b))
+
+# @stoplight/spectral-functions [1.9.0](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-functions-1.8.0...@stoplight/spectral-functions-1.9.0) (2024-09-12)
+
+
+### Features
+
+* **rulesets:** initial rulesets for the Arazzo Specification ([#2672](https://github.com/stoplightio/spectral/issues/2672)) ([8443232](https://github.com/stoplightio/spectral/commit/84432325cd9eb87c4ce32897bd4a23e83aabb856))
+
+# @stoplight/spectral-functions [1.8.0](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-functions-v1.7.2...@stoplight/spectral-functions-1.8.0) (2024-06-07)
+
+
+### Features
+
+* **rulesets:** add multiple xor ([#2614](https://github.com/stoplightio/spectral/issues/2614)) ([af9c742](https://github.com/stoplightio/spectral/commit/af9c742ef8a9e0749031f41ecf9466e15be9acdd))
+
 # [@stoplight/spectral-functions-v1.7.2](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-functions-v1.7.1...@stoplight/spectral-functions-v1.7.2) (2022-12-13)
 
 

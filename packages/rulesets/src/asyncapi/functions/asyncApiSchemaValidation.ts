@@ -48,7 +48,7 @@ export default createRulesetFunction<SchemaFragment, Options>(
       required: ['type'],
     },
   },
-  function asyncApi2SchemaValidation(targetVal, opts, context) {
+  function asyncApiSchemaValidation(targetVal, opts, context) {
     const schemaObject = targetVal;
     const relevantItems = getRelevantItems(targetVal, opts.type);
 
@@ -67,7 +67,7 @@ export default createRulesetFunction<SchemaFragment, Options>(
         },
       );
 
-      if (Array.isArray(result)) {
+      if (Array.isArray(result) && typeof relevantItem.value !== 'string') {
         results.push(...result);
       }
     }
