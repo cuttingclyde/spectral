@@ -1,3 +1,38 @@
+## @stoplight/spectral-core [1.19.4](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-core-1.19.3...@stoplight/spectral-core-1.19.4) (2024-11-19)
+
+
+### Bug Fixes
+
+* **deps:** fix CVE related to jsonpath-plus ([169db7a](https://github.com/stoplightio/spectral/commit/169db7abc7bcc41a297c11bb6eee78474615c63b))
+
+## @stoplight/spectral-core [1.19.3](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-core-1.19.2...@stoplight/spectral-core-1.19.3) (2024-11-13)
+
+
+### Bug Fixes
+
+* **cli:** update dependencies and trigger docker release ([c87eacf](https://github.com/stoplightio/spectral/commit/c87eacff7c6d97ec139cc66623e4b0b27158a0cc))
+
+## @stoplight/spectral-core [1.19.2](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-core-1.19.1...@stoplight/spectral-core-1.19.2) (2024-11-12)
+
+
+### Bug Fixes
+
+* **core:** require new formats version ([#2725](https://github.com/stoplightio/spectral/issues/2725)) ([8ec328f](https://github.com/stoplightio/spectral/commit/8ec328fe68e42519cea1d6afedc4eb309a2c121c))
+
+## @stoplight/spectral-core [1.19.1](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-core-1.19.0...@stoplight/spectral-core-1.19.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* **core:** fix for TypeError "this.formats.has is not a function" ([#2664](https://github.com/stoplightio/spectral/issues/2664)) ([75d642d](https://github.com/stoplightio/spectral/commit/75d642dae6200136839a8ab67d8860b2e781a8d2))
+
+# @stoplight/spectral-core [1.19.0](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-core-1.18.3...@stoplight/spectral-core-1.19.0) (2024-09-12)
+
+
+### Features
+
+* **rulesets:** initial rulesets for the Arazzo Specification ([#2672](https://github.com/stoplightio/spectral/issues/2672)) ([8443232](https://github.com/stoplightio/spectral/commit/84432325cd9eb87c4ce32897bd4a23e83aabb856))
+
 ## @stoplight/spectral-core [1.18.3](https://github.com/stoplightio/spectral/compare/@stoplight/spectral-core-1.18.2...@stoplight/spectral-core-1.18.3) (2023-07-18)
 
 

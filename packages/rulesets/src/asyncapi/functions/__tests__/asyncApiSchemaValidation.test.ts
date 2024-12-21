@@ -1,25 +1,25 @@
-import asyncApi2SchemaValidation from '../asyncApi2SchemaValidation';
+import asyncApiSchemaValidation from '../asyncApiSchemaValidation';
 
 function runPayloadValidation(targetVal: any, opts: { type: 'examples' | 'default' }) {
-  return asyncApi2SchemaValidation(targetVal, opts, { path: [], documentInventory: {} } as any);
+  return asyncApiSchemaValidation(targetVal, opts, { path: [], documentInventory: {} } as any);
 }
 
-describe('asyncApi2SchemaValidation', () => {
+describe('asyncApiSchemaValidation', () => {
   test('validates examples', () => {
     const payload = {
-      type: 'string',
-      examples: [17, 'one', 13],
+      type: 'object',
+      examples: [17, {}, 13, 'string-is-always-accepted'],
     };
 
     const results = runPayloadValidation(payload, { type: 'examples' });
 
     expect(results).toEqual([
       {
-        message: '"0" property type must be string',
+        message: '"0" property type must be object',
         path: ['examples', 0],
       },
       {
-        message: '"2" property type must be string',
+        message: '"2" property type must be object',
         path: ['examples', 2],
       },
     ]);

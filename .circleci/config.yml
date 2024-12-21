@@ -20,11 +20,9 @@ defaults:
     tags:
       only: /^v.*/
   node-versions: &node-versions
-    - "12.22"
-    - "14.21"
     - &node-maintenance-lts "16.20"
     - &node-active-lts "18.18"
-    - &node-current "20.5"
+    - &node-current "20.17"
   pkg-cache-path: &pkg-cache-path /tmp/pkg-node-binaries
   ldid-version: &ldid-version 2.1.5-procursus7 # https://github.com/ProcursusTeam/ldid
 
@@ -167,7 +165,7 @@ commands:
       - run:
           name: Install ldid
           working_directory: /tmp/ldid
-          command: make install
+          command: sudo make install
 
   lint-code:
     steps:
@@ -193,12 +191,12 @@ commands:
     parameters:
       max-workers:
         type: integer
-        default: 2
+        default: 3
     steps:
       - run: yarn pretest
       - run:
           name: Run node tests
-          command: yarn test.jest --maxWorkers=<< parameters.max-workers >>
+          command: yarn test.jest --ci --maxWorkers=<< parameters.max-workers >>
 
   test-harness:
     parameters:
@@ -212,7 +210,7 @@ commands:
         type: string
       max-workers:
         type: integer
-        default: 2
+        default: 3
     steps:
       - compute-hashes
       - restore_cache:
@@ -276,7 +274,7 @@ jobs:
             - test-harness:
                 os: linux
                 node-version: << parameters.node-version >>
-                max-workers: 2
+                max-workers: 3
 
   test-browser:
     docker:
@@ -292,6 +290,7 @@ jobs:
   test-windows:
     executor:
       name: windows/default
+      size: large
     steps:
       - checkout
       - cached-dependencies:
@@ -302,7 +301,7 @@ jobs:
       - test-harness:
           os: windows
           node-version: *node-active-lts
-          max-workers: 2
+          max-workers: 3
 
   build-nix-binaries:
     docker:
@@ -342,7 +341,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: 20.10.2
           docker_layer_caching: true
       - run:
           name: set version in package.json
@@ -408,13 +406,13 @@ jobs:
 
   upload-artifacts:
     docker:
-      - image: circleci/golang:1-stretch
+      - image: cimg/go:1.23
     steps:
       - attach_workspace:
           at: /tmp/
       - run:
           name: "Download GitHub Release Utility"
-          command: go get github.com/tcnksm/ghr
+          command: go install github.com/tcnksm/ghr@latest
       - run:
           name: "Publish Release artifacts on GitHub"
           command: ghr -t ${GH_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} ${CIRCLE_TAG} /tmp/binaries
